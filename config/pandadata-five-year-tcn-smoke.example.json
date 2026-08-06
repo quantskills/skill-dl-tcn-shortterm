@@ -1,0 +1,33 @@
+{
+  "run_name": "pandadata-five-year-top20-tcn-smoke",
+  "seed": 7,
+  "horizons": [1, 2, 3, 5],
+  "lookback_days": 10,
+  "universe": {
+    "allowed_exchanges": ["XSHG", "XSHE"],
+    "security_type": "A_SHARE",
+    "min_listing_days": 0
+  },
+  "walk_forward": {
+    "train_days": 600,
+    "validation_days": 100,
+    "test_days": 100,
+    "embargo_days": 5,
+    "max_folds": 1
+  },
+  "data_loader": {
+    "num_workers": 0
+  },
+  "tcn": {
+    "enabled": true,
+    "channels": 8,
+    "kernel_size": 3,
+    "dilations": [1, 2, 4, 8, 16, 32, 64],
+    "dropout": 0.1,
+    "epochs": 1,
+    "batch_size": 128
+  },
+  "portfolio": {
+    "top_fraction": 0.1
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "deliverable": "engineering-research-library",
+  "runtime_manifest_path": "<untracked-runtime-manifest.json>",
+  "data_governance": {
+    "provider": "<licensed-provider>",
+    "license_reference": "<owner-approval-id>",
+    "source_version": "<immutable-provider-snapshot>",
+    "data_owner": "<accountable-data-owner>",
+    "timezone": "Asia/Shanghai",
+    "trading_calendar": "<calendar-version>",
+    "bar_timestamp_semantics": "bar_end",
+    "adjustment_policy": "<point-in-time-adjustment-policy>",
+    "availability_policy": "<field-availability-policy>",
+    "raw_schema_version": "<raw-schema-version>",
+    "canonical_schema_version": "<canonical-schema-version>",
+    "universe_version": "<pit-universe-version>",
+    "feature_version": "<feature-version>",
+    "label_version": "<label-version>",
+    "license_approved": false,
+    "pit_instrument_state": false,
+    "pit_corporate_actions": false,
+    "survivorship_bias_controlled": false
+  },
+  "evaluation_protocol": {
+    "periods": {
+      "train": {"start": "<YYYY-MM-DD>", "end": "<YYYY-MM-DD>"},
+      "validation": {"start": "<YYYY-MM-DD>", "end": "<YYYY-MM-DD>"},
+      "ordinary_test": {"start": "<YYYY-MM-DD>", "end": "<YYYY-MM-DD>"},
+      "sealed_holdout": {"start": "<YYYY-MM-DD>", "end": "<YYYY-MM-DD>"}
+    },
+    "embargo_days": 5,
+    "purge_uses_label_end_at": true,
+    "sealed_holdout_accessed": false,
+    "model_owner": "<model-owner>",
+    "sealed_holdout_custodian": "<independent-custodian>",
+    "models": ["ridge", "lightgbm", "lstm", "gru", "bai-tcn"],
+    "metrics": [
+      "rankic",
+      "icir",
+      "net_long_only_return",
+      "throughput_samples_per_second",
+      "time_to_best_validation_seconds",
+      "peak_memory_bytes"
+    ],
+    "promotion_config_path": "<untracked-preregistered-promotion.json>",
+    "promotion_config_sha256": "<sha256>"
+  },
+  "compute_protocol": {
+    "hardware_id": "<stable-hardware-id>",
+    "device": "<cpu-or-cuda-device>",
+    "precision": "float32",
+    "batch_size": 32,
+    "max_epochs": 100,
+    "early_stopping_patience": 10,
+    "early_stopping_rule": "<fixed-validation-rule>",
+    "seed": 7,
+    "deterministic_algorithms": true
+  },
+  "research_budget": {
+    "max_pre_holdout_iterations": 10,
+    "max_wall_clock_hours": 24,
+    "stop_rule": "<budget-and-no-improvement-rule>",
+    "model_selection_rule": "<fixed-validation-only-selection-rule>"
+  }
+}

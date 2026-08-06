@@ -1,0 +1,88 @@
+{
+  "run_id": "pandadata-tcn-stabilized-signed-residual-v15-seed7",
+  "parent_artifact": "artifacts/tcn-signed-temporal-adapter-multiseed-v14",
+  "parent_receipt_id": "c0d7a8d4e976f6aade52cd6ffd40d143a7d6bb54c8de6a48025709960ed6eada",
+  "source_sha256": {
+    "features": "6a494fe56cd4594bfd24f1c3a053d93bf704af5acfb97089a095d69c4bb2983e",
+    "window_index": "977033bd1115a2d649600905ee9f3c115ceed6fa0ceacff24587ee5da4966db1",
+    "labels": "4a64e2d3e6ff9285df5e229661b50f66535c0dfeed22779def541a848f378594",
+    "split_manifest": "7de75cf192d807b03ef777f496caca5a1ee774f083bd23afc04239f006a9a672"
+  },
+  "seed": 7,
+  "folds": [0, 1, 2, 3, 4],
+  "torch_threads": 8,
+  "num_workers": 0,
+  "precision": "float32",
+  "max_epochs": 8,
+  "patience": 2,
+  "min_delta": 0.002,
+  "control_trial_id": "context-c16-chomp-smooth",
+  "candidate_trial_ids": [
+    "stable-residual-c16-chomp-smooth-lr100",
+    "stable-residual-c16-chomp-smooth-lr010"
+  ],
+  "gates": {
+    "min_mean_rankic": 0.09,
+    "min_positive_folds": 5,
+    "min_nondegrading_folds": 3,
+    "min_horizon_delta_1d": 0.0,
+    "min_horizon_delta_2d": -0.003,
+    "min_horizon_delta_3d": -0.005,
+    "min_horizon_delta_5d": -0.005,
+    "min_median_samples_per_second": 5000.0,
+    "required_parameter_count": 6524,
+    "min_model_step_speed_ratio": 3.0,
+    "min_end_to_end_speed_ratio": 3.0
+  },
+  "trials": [
+    {
+      "trial_id": "context-c16-chomp-smooth",
+      "model_kind": "temporal_context",
+      "channels": 16,
+      "kernel_size": 3,
+      "dilations": [1, 2, 4, 8, 16, 32, 64, 128],
+      "dropout": 0.0,
+      "learning_rate": 0.003,
+      "batch_size": 128,
+      "strategy": "smooth_l1",
+      "padding_mode": "chomp",
+      "bars_per_day": 48
+    },
+    {
+      "trial_id": "stable-residual-c16-chomp-smooth-lr100",
+      "model_kind": "stabilized_temporal_context",
+      "channels": 16,
+      "kernel_size": 3,
+      "dilations": [1, 2, 4, 8, 16, 32, 64, 128],
+      "dropout": 0.0,
+      "learning_rate": 0.003,
+      "adapter_learning_rate": 0.003,
+      "residual_scale": 0.05,
+      "batch_size": 128,
+      "strategy": "smooth_l1",
+      "padding_mode": "chomp",
+      "bars_per_day": 48
+    },
+    {
+      "trial_id": "stable-residual-c16-chomp-smooth-lr010",
+      "model_kind": "stabilized_temporal_context",
+      "channels": 16,
+      "kernel_size": 3,
+      "dilations": [1, 2, 4, 8, 16, 32, 64, 128],
+      "dropout": 0.0,
+      "learning_rate": 0.003,
+      "adapter_learning_rate": 0.0003,
+      "residual_scale": 0.05,
+      "batch_size": 128,
+      "strategy": "smooth_l1",
+      "padding_mode": "chomp",
+      "bars_per_day": 48
+    }
+  ],
+  "lstm_benchmark": {
+    "hidden_size": 34,
+    "learning_rate": 0.003,
+    "batch_size": 128,
+    "epochs": 8
+  }
+}

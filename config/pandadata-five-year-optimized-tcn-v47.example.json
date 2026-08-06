@@ -1,0 +1,45 @@
+{
+  "run_name": "pandadata-five-year-optimized-tcn-v47",
+  "seed": 7,
+  "horizons": [1, 2, 3, 5],
+  "lookback_days": 10,
+  "walk_forward": {
+    "train_days": 600,
+    "validation_days": 100,
+    "embargo_days": 5,
+    "test_days": 100,
+    "max_folds": 5
+  },
+  "universe": {
+    "allowed_exchanges": ["XSHG", "XSHE"],
+    "min_listing_days": 0,
+    "security_type": "A_SHARE"
+  },
+  "data_loader": {
+    "num_workers": 0
+  },
+  "optimized_tcn": {
+    "enabled": true,
+    "profile": "v40-portable",
+    "relative_features": true,
+    "min_cross_section": 31,
+    "torch_threads": 8,
+    "epochs": 8,
+    "batch_size": 128,
+    "learning_rate": 0.003
+  },
+  "performance": {
+    "enabled": true,
+    "models": ["lstm", "optimized-tcn-v40-portable"],
+    "hidden_size": 34,
+    "tcn_channels": 16,
+    "kernel_size": 3,
+    "dilations": [1, 2, 4, 8, 16, 32, 64, 128],
+    "optimized_tcn_profile": "v40-portable",
+    "torch_threads": 8,
+    "epochs": 8,
+    "batch_size": 128,
+    "learning_rate": 0.003,
+    "device": "cpu"
+  }
+}

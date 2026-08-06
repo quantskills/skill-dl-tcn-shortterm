@@ -1,0 +1,88 @@
+schema_version: 1
+scaffold_contract_version: 2
+generated_at: '2026-07-30T14:48:26.599731+00:00'
+name: skill-dl-tcn-shortterm
+description: 创建一个 Python 深度学习与量化研究实验项目，使用 Temporal Convolutional Network 对金融分钟线进行未来
+  1–5 个交易日的多期限收益、方向和波动率预测；包含 Bai 2018 因果扩张残差 TCN 基线、TCN-lite 与 ModernTCN 实验对照、严格 PIT
+  数据契约、chronological walk-forward、purge/embargo 验证、Parquet/Arrow/memmap 大数据加载、Ridge/LightGBM/LSTM/GRU
+  基准、RankIC/ICIR、含成本的离线回测以及训练吞吐性能验证。项目仅用于离线研究，不连接券商，不执行订单，不写入外部系统，不承诺收益。
+canonical_root: .
+classification:
+  primary_type: data-quant
+  secondary_types: &id001
+  - experiment
+  domain: finance
+  lifecycle: active
+  runtime: batch
+  write_target: repository-only
+  data_sensitivity: sensitive
+  risk: R1
+  platforms: []
+  language: python
+  tags:
+  - data-quant
+  - experiment
+  - finance
+  - active
+  - batch
+  evidence:
+  - field: primary_type
+    value: data-quant
+    source: matched description
+    matched_terms:
+    - 量化
+    - 回测
+    - 交易
+  - field: secondary_types
+    value: *id001
+    source: matched description
+  - field: domain
+    value: finance
+    source: matched description
+    matched_terms:
+    - 量化
+    - 交易
+    - 金融
+  - field: lifecycle
+    value: active
+    source: type default
+  - field: runtime
+    value: batch
+    source: matched description
+    matched_terms:
+    - 回测
+  - field: write_target
+    value: repository-only
+    source: type default
+  - field: data_sensitivity
+    value: sensitive
+    source: matched description
+    matched_terms:
+    - 金融
+    - 交易
+  - field: risk
+    value: R1
+    source: type default
+  - field: language
+    value: python
+    source: matched description
+    matched_terms:
+    - python
+language: python
+read_order:
+- AGENTS.md
+- PROGRAM.md
+- CONTEXT.md
+- README.md
+- tasks/preflight.py
+- docs/WORK_ITEMS.md
+write_policy:
+  default_mode: plan
+  execute_required: true
+  allowed_roots:
+  - this repository
+  - temporary test directories
+  external_targets: owner approval and explicit configuration required
+verification_commands:
+- python tasks/preflight.py
+- python tasks/test.py

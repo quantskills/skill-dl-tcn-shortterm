@@ -1,0 +1,62 @@
+{
+  "protocol_version": "v38-phase-a",
+  "run_id": "pandadata-tcn-appended-relative-sequence-seed7-v38",
+  "v37_parent_receipt_id": "091cb88ca4bcc8827ea301750c9d207b9904c95281fac66e931846eaf64cc16d",
+  "source_sha256": {
+    "candidate_features": "2f6110361b48c40fd8c4aab3dfcdc48b70334fe01073ec377ad5543c70fac6b0",
+    "candidate_window_index": "d23a75e63f92f03ebb58752edf9bd5948ef53c6afeaaa54b44faf623d84c798a",
+    "candidate_manifest": "e3e44cf0d8b372c0ea5031383af1151bfacb4fdfd2e2ddfa4efb13df72093438",
+    "candidate_receipt": "27e3af084c905124b778e328bef63d7dcfac1b10b18c23b096065cf7f691a5d6",
+    "labels": "4a64e2d3e6ff9285df5e229661b50f66535c0dfeed22779def541a848f378594",
+    "split_manifest": "7de75cf192d807b03ef777f496caca5a1ee774f083bd23afc04239f006a9a672",
+    "parent_receipt": "1b8bac853cc96d783802fa9243225311c7f5f14691a26650d5df4a899df86408",
+    "parent_predictions": "935dcdc13b4093c1a2dab7ee994c3cc841fc01e6660e71cee7ed24d2b0e697b2",
+    "parent_leaderboard": "91ed0916ff6e76839b30d0eff75f85ff5a8a4b673c088e1b441c76e64572e33f"
+  },
+  "seeds": [7],
+  "folds": [0, 1, 2, 3, 4],
+  "torch_threads": 8,
+  "num_workers": 0,
+  "precision": "float32",
+  "max_epochs": 8,
+  "patience": 2,
+  "min_delta": 0.0005,
+  "checkpoint_min_delta": 0.0,
+  "top_fraction": 0.1,
+  "bootstrap_seed": 38,
+  "bootstrap_draws": 2000,
+  "contracts": {
+    "prediction_contract_id": "cross-sectional-score-v1",
+    "target_contract_id": "next-open-rank-v2",
+    "evaluation_contract_id": "ordinary-validation-relative-features-v37",
+    "tcn_training_contract_id": "base8-plus-relative2-dynamic-horizon-skip-smooth-l1-v38",
+    "lstm_training_contract_id": "not-executed-in-phase-a"
+  },
+  "gates": {
+    "min_mean_rankic_delta": 0.002,
+    "min_positive_units": 3,
+    "min_mean_top_precision_delta": 0.0,
+    "min_mean_ndcg_delta": 0.0,
+    "min_mean_top_return_delta": -0.0001,
+    "max_mean_turnover_delta": 0.02,
+    "min_rankic_ci_low": -0.002,
+    "min_tcn_speed_retention": 0.9
+  },
+  "trials": [
+    {
+      "trial_id": "dynamic-horizon-skip-c16-chomp-smooth-append-relative-v38",
+      "model_kind": "dynamic_horizon_skip",
+      "channels": 16,
+      "kernel_size": 3,
+      "dilations": [1, 2, 4, 8, 16, 32, 64, 128],
+      "dropout": 0.0,
+      "learning_rate": 0.003,
+      "batch_size": 128,
+      "strategy": "smooth_l1",
+      "padding_mode": "chomp",
+      "dynamic_skip_hidden": 4,
+      "dynamic_skip_scale": 1.0,
+      "date_batch_order": "fixed_once"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "run_name": "pandadata-five-year-top50-preprocess-v39",
+  "seed": 7,
+  "horizons": [1, 2, 3, 5],
+  "lookback_days": 10,
+  "universe": {
+    "allowed_exchanges": ["XSHG", "XSHE"],
+    "security_type": "A_SHARE",
+    "min_listing_days": 0
+  },
+  "walk_forward": {
+    "train_days": 600,
+    "validation_days": 100,
+    "test_days": 100,
+    "embargo_days": 5,
+    "max_folds": 2
+  },
+  "data_loader": {
+    "num_workers": 0
+  },
+  "portfolio": {
+    "top_fraction": 0.1
+  }
+}

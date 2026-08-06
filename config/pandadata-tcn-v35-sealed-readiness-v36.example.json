@@ -1,0 +1,49 @@
+{
+  "protocol_version": "v36",
+  "run_id": "pandadata-tcn-v35-sealed-readiness-v36",
+  "v35_candidate_artifact": "artifacts/tcn-constrained-tail-checkpoint-selection-v35",
+  "v35_receipt_id": "96f673676f73056efe28d67913e8e8ab1029b28d733af4cb241a8fd91eb85f73",
+  "v35_candidate_status": "constrained_tail_ordinary_validation_candidate_v35",
+  "lstm_artifact": "artifacts/tcn-task-aligned-evaluation-v33",
+  "lstm_receipt_id": "caba5202de0dfccd8afc8383005e96a14125c400b601a97bf035b33baa19c67f",
+  "ordinary_split_manifest": "artifacts/tcn-stability-expanding-v4/validation-stability-manifest.parquet",
+  "sealed_split_manifest": "artifacts/pandadata-five-year-sequence-benchmark-runs-v2-optimized/52787a471076e1be/split-manifest.parquet",
+  "expected_sha256": {
+    "ordinary_split_manifest": "7de75cf192d807b03ef777f496caca5a1ee774f083bd23afc04239f006a9a672",
+    "sealed_split_manifest": "04cd32ec7f69fa3260ffa59f079dbdf03a8e26a204be16e96ffe551a578b7649",
+    "features": "6a494fe56cd4594bfd24f1c3a053d93bf704af5acfb97089a095d69c4bb2983e",
+    "window_index": "977033bd1115a2d649600905ee9f3c115ceed6fa0ceacff24587ee5da4966db1",
+    "labels": "4a64e2d3e6ff9285df5e229661b50f66535c0dfeed22779def541a848f378594"
+  },
+  "seeds": [7, 17, 27],
+  "ordinary_folds": [0, 1, 2, 3, 4],
+  "sealed_test_folds": [0, 1],
+  "expected_eligible_unit_count": 24,
+  "expected_changed_unit_exposures": 12,
+  "top_fraction": 0.1,
+  "bootstrap_seed": 36,
+  "bootstrap_draws": 5000,
+  "one_way_cost_bps": 10.0,
+  "authorization_text_sha256": "85812c5c70b608181e987ac1dd7667116c8542e77b80995efc660fbae507ec79",
+  "evaluation_policy": {
+    "sealed_stage": "test",
+    "exclude_stage": "sealed_holdout",
+    "eligibility_guard": "validation_end_date < sealed_test_start_date",
+    "model_unit_policy": "all_eligible_seed_fold_units",
+    "metric_aggregation": "date_block_paired_unit_mean",
+    "sealed_reuse": "exactly_once",
+    "post_result_tuning": "forbidden"
+  },
+  "gates": {
+    "min_mean_top_precision_delta": 0.0,
+    "min_mean_ndcg_at_top_delta": 0.0,
+    "min_primary_tail_ci_low": 0.0,
+    "min_secondary_tail_ci_low": -0.002,
+    "min_mean_rankic_delta": -0.002,
+    "min_top_return_ci_low": -0.0005,
+    "min_net_return_after_cost_ci_low": -0.0005,
+    "max_mean_top_turnover_delta": 0.02,
+    "min_model_step_speed_ratio": 3.0,
+    "min_end_to_end_speed_ratio": 3.0
+  }
+}

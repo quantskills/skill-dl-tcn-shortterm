@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skill-dl-tcn-shortterm"
+version = "0.1.0"
+description = "Agent-neutral, causal TCN research for 1–5 day cross-sectional signals from financial minute bars"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "duckdb>=1.5,<2",
+    "lightgbm>=4.5",
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "pyarrow>=17",
+    "psutil>=6",
+    "pydantic>=2.8",
+    "PyYAML>=6",
+    "scikit-learn>=1.5",
+    "scipy>=1.13",
+    "torch>=2.3",
+]
+
+[project.scripts]
+tcn-shortterm-skill = "skill_dl_tcn_shortterm.agent_cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "build>=1.2",
+    "mypy>=1.15",
+    "pytest>=8",
+    "ruff>=0.11",
+    "twine>=6,<7",
+]
+pandadata = ["panda_data==0.0.12"]
+
+[tool.setuptools.package-data]
+skill_dl_tcn_shortterm = ["resources/agent_skill/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.mypy]
+files = ["src", "tests", "tasks"]
+ignore_missing_imports = true
+check_untyped_defs = true
+show_error_codes = true
+warn_redundant_casts = true
+warn_unused_ignores = true

@@ -1,0 +1,93 @@
+{
+  "protocol_version": "v40-phase-b",
+  "run_id": "pandadata-tcn-v40-multiseed-lstm-confirmation",
+  "base_run_dir": "artifacts/pandadata-top50-training-v39",
+  "relative_feature_dir": "artifacts/tcn-top50-appended-relative-sequence-v39",
+  "v39_parent_run_dir": "artifacts/tcn-top50-relative-seed7-screen-v39",
+  "phase_a_run_dir": "artifacts/tcn-v40-model-strategy-boundary-seed7",
+  "split_manifest": "artifacts/tcn-top50-stability-expanding-v39/validation-stability-manifest.parquet",
+  "source_sha256": {
+    "base_features": "50cfa0653e90f617925596f6bea9af35114f56ee1e4e067e15ad8eadf8a054de",
+    "base_window_index": "2d2e7f05ced0972a21511692bf23531945560e3f4797aec99c0bbbcd1bb06f72",
+    "relative_features": "b1eb4869c6dbf580a43692de7c073908f2b75548789f1b7167ba5e815c5c9cf4",
+    "relative_window_index": "6cbf0e3e0da920e90a329b0a2c27d34f933bde4a78824f0bdefb0899b55207ac",
+    "relative_manifest": "c378c04bdcb19ef28196a55d3d0b7484d08af8ca7596e007378abb69264bb003",
+    "relative_receipt": "8d3f3e01d8666da4a8d676488886aa34effa75c310bbee00b4773454421e87f3",
+    "labels": "cd1c785268790a469b99796383b55b5b04bbfcfb63973ab34fd2bcbd09047200",
+    "split_manifest": "e46cc03a07c07cd20c53130288af89c22c9c83a5f95970bc3637ae5779ff25f6",
+    "seed7_predictions": "38365159947754dd6a278ba89214b3c03c9927f02359f073df4994e9a2957f2a",
+    "seed7_leaderboard": "05128c09eb165143be244b6444224c7f39fc9d4b02d110ebe1e8c7f3c6b8cea9",
+    "seed7_history": "5908a89681a25e1813a177bee7f5d18beb0d5d866f2b737bde1784dbb9c27d93",
+    "v39_receipt": "dbd71bba0ebb77fb51bd10dd33ae654715af7ff17bc2d4ee5ccda4eeb6cd1804",
+    "phase_a_model_gate": "f246f7d5a189a998fc724308caf1a9412effa1ab36f690b9e6fb9393f4eb6b62",
+    "phase_a_receipt": "9d5650bacd370ee09cd9c1092bc0e02a7147e96f1bf3ca4b055d639617050e04"
+  },
+  "confirmation_seeds": [17, 27],
+  "all_seeds": [7, 17, 27],
+  "folds": [0, 1, 2, 3, 4],
+  "torch_threads": 8,
+  "num_workers": 0,
+  "precision": "float32",
+  "max_epochs": 8,
+  "patience": 2,
+  "min_delta": 0.0005,
+  "checkpoint_min_delta": 0.0,
+  "top_fraction": 0.1,
+  "bootstrap_seed": 40,
+  "bootstrap_draws": 2000,
+  "contracts": {
+    "prediction_contract_id": "cross-sectional-score-v1",
+    "target_contract_id": "next-open-rank-v2",
+    "evaluation_contract_id": "ordinary-validation-top50-relative-v39",
+    "tcn_training_contract_id": "variant-overridden-by-runner",
+    "lstm_training_contract_id": "top50-relative10-lstm-smooth-l1-v40"
+  },
+  "model_gates": {
+    "min_mean_rankic_delta": 0.002,
+    "min_positive_units": 9,
+    "min_mean_top_precision_delta": 0.0,
+    "min_mean_ndcg_delta": 0.0,
+    "min_mean_top_return_delta": -0.0001,
+    "min_rankic_ci_low": -0.002,
+    "min_tcn_speed_retention": 0.9
+  },
+  "strategy_gate": {
+    "one_way_cost_bps": 10.0,
+    "max_mean_one_way_turnover_delta": 0.02,
+    "min_mean_net_return_delta": -0.0001
+  },
+  "policies": [
+    {
+      "name": "raw_topk",
+      "incumbent_buffer_fraction": 0.0
+    },
+    {
+      "name": "incumbent_buffer_20pct",
+      "incumbent_buffer_fraction": 0.2
+    }
+  ],
+  "cost_bps": [0.0, 5.0, 10.0, 20.0],
+  "trials": [
+    {
+      "trial_id": "top50-dynamic-horizon-skip-c16-chomp-smooth-relative-v40",
+      "model_kind": "dynamic_horizon_skip",
+      "channels": 16,
+      "kernel_size": 3,
+      "dilations": [1, 2, 4, 8, 16, 32, 64, 128],
+      "dropout": 0.0,
+      "learning_rate": 0.003,
+      "batch_size": 128,
+      "strategy": "smooth_l1",
+      "padding_mode": "chomp",
+      "dynamic_skip_hidden": 4,
+      "dynamic_skip_scale": 1.0,
+      "date_batch_order": "fixed_once"
+    }
+  ],
+  "lstm": {
+    "hidden_size": 34,
+    "learning_rate": 0.003,
+    "batch_size": 128,
+    "epochs": 8
+  }
+}

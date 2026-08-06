@@ -1,0 +1,82 @@
+{
+  "protocol_version": "v41-phase-a",
+  "run_id": "pandadata-tcn-v41-single-model-ema-seed7",
+  "source_sha256": {
+    "relative_features": "b1eb4869c6dbf580a43692de7c073908f2b75548789f1b7167ba5e815c5c9cf4",
+    "relative_window_index": "6cbf0e3e0da920e90a329b0a2c27d34f933bde4a78824f0bdefb0899b55207ac",
+    "relative_manifest": "c378c04bdcb19ef28196a55d3d0b7484d08af8ca7596e007378abb69264bb003",
+    "relative_receipt": "8d3f3e01d8666da4a8d676488886aa34effa75c310bbee00b4773454421e87f3",
+    "labels": "cd1c785268790a469b99796383b55b5b04bbfcfb63973ab34fd2bcbd09047200",
+    "split_manifest": "e46cc03a07c07cd20c53130288af89c22c9c83a5f95970bc3637ae5779ff25f6",
+    "v40_timing_summary": "e36e5aa67c9e711580993a6fc450d9d27f0f661974964dcc3abdf25afbef74c4",
+    "v40_receipt": "4841cb7837b6532709e63111a8966be1ef89a909420894181f967962580fbc3b"
+  },
+  "seeds": [7],
+  "folds": [0, 1, 2, 3, 4],
+  "torch_threads": 8,
+  "num_workers": 0,
+  "precision": "float32",
+  "max_epochs": 8,
+  "patience": 2,
+  "min_delta": 0.0005,
+  "checkpoint_min_delta": 0.0,
+  "top_fraction": 0.1,
+  "bootstrap_seed": 41,
+  "bootstrap_draws": 2000,
+  "control_trial_id": "top50-relative10-dynamic-skip-raw-v41",
+  "candidate_trial_id": "top50-relative10-dynamic-skip-ema099-v41",
+  "contracts": {
+    "prediction_contract_id": "cross-sectional-score-v1",
+    "target_contract_id": "next-open-rank-v2",
+    "evaluation_contract_id": "ordinary-validation-top50-ema-v41",
+    "tcn_training_contract_id": "variant-overridden-by-runner"
+  },
+  "gates": {
+    "min_mean_rankic_delta": 0.002,
+    "min_positive_folds": 3,
+    "min_rankic_ci_low": -0.002,
+    "min_broad_metric_count": 4,
+    "min_top_return_delta": -0.0001,
+    "min_top_precision_delta": -0.002,
+    "min_ndcg_delta": -0.001,
+    "min_quantile_monotonicity_delta": -0.002,
+    "min_positive_horizons": 3,
+    "min_worst_horizon_rankic_delta": -0.003,
+    "min_model_step_retention": 0.9,
+    "min_complete_cycle_retention": 0.85,
+    "min_implied_tcn_lstm_model_step_ratio": 3.0
+  },
+  "trials": [
+    {
+      "trial_id": "top50-relative10-dynamic-skip-raw-v41",
+      "model_kind": "dynamic_horizon_skip",
+      "channels": 16,
+      "kernel_size": 3,
+      "dilations": [1, 2, 4, 8, 16, 32, 64, 128],
+      "dropout": 0.0,
+      "learning_rate": 0.003,
+      "batch_size": 128,
+      "strategy": "smooth_l1",
+      "padding_mode": "chomp",
+      "dynamic_skip_hidden": 4,
+      "dynamic_skip_scale": 1.0,
+      "date_batch_order": "fixed_once"
+    },
+    {
+      "trial_id": "top50-relative10-dynamic-skip-ema099-v41",
+      "model_kind": "dynamic_horizon_skip",
+      "channels": 16,
+      "kernel_size": 3,
+      "dilations": [1, 2, 4, 8, 16, 32, 64, 128],
+      "dropout": 0.0,
+      "learning_rate": 0.003,
+      "batch_size": 128,
+      "strategy": "smooth_l1",
+      "padding_mode": "chomp",
+      "dynamic_skip_hidden": 4,
+      "dynamic_skip_scale": 1.0,
+      "date_batch_order": "fixed_once",
+      "ema_decay": 0.99
+    }
+  ]
+}

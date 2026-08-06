@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quantskills.github.io/skill-dl-tcn-shortterm/request-v1.schema.json",
+  "title": "TCN Short-Term Agent Request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "action",
+    "config_path",
+    "manifest_path",
+    "output_root"
+  ],
+  "properties": {
+    "schema_version": {"const": "1"},
+    "action": {"const": "run"},
+    "config_path": {"type": "string", "minLength": 1},
+    "manifest_path": {"type": "string", "minLength": 1},
+    "output_root": {"type": "string", "minLength": 1}
+  }
+}

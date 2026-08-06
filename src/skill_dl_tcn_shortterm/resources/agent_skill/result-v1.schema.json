@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quantskills.github.io/skill-dl-tcn-shortterm/result-v1.schema.json",
+  "title": "TCN Short-Term Agent Result v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "action",
+    "engine",
+    "warnings",
+    "errors"
+  ],
+  "properties": {
+    "schema_version": {"const": "1"},
+    "status": {"enum": ["success", "failed"]},
+    "action": {"enum": ["run", "demo", "example"]},
+    "request_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": {"const": "skill-dl-tcn-shortterm"},
+        "version": {"type": "string", "minLength": 1}
+      }
+    },
+    "run_id": {"type": "string", "minLength": 1},
+    "authoritative_run_manifest": {"type": "object"},
+    "files": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1
+    },
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "errors": {"type": "array", "items": {"type": "string"}}
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {"const": "success"},
+          "action": {"enum": ["run", "demo"]}
+        },
+        "required": ["status", "action"]
+      },
+      "then": {
+        "required": [
+          "request_digest",
+          "run_id",
+          "authoritative_run_manifest"
+        ],
+        "properties": {"errors": {"maxItems": 0}}
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {"const": "success"},
+          "action": {"const": "example"}
+        },
+        "required": ["status", "action"]
+      },
+      "then": {
+        "required": ["files"],
+        "properties": {"errors": {"maxItems": 0}}
+      }
+    },
+    {
+      "if": {
+        "properties": {"status": {"const": "failed"}},
+        "required": ["status"]
+      },
+      "then": {"properties": {"errors": {"minItems": 1}}}
+    }
+  ]
+}

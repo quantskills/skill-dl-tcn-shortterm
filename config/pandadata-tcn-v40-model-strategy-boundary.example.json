@@ -1,0 +1,47 @@
+{
+  "protocol_version": "v40-phase-a",
+  "run_id": "pandadata-tcn-v40-model-strategy-boundary-seed7",
+  "parent_run_dir": "artifacts/tcn-top50-relative-seed7-screen-v39",
+  "labels_path": "artifacts/pandadata-top50-training-v39/labels.parquet",
+  "source_sha256": {
+    "predictions": "38365159947754dd6a278ba89214b3c03c9927f02359f073df4994e9a2957f2a",
+    "leaderboard": "05128c09eb165143be244b6444224c7f39fc9d4b02d110ebe1e8c7f3c6b8cea9",
+    "bootstrap": "43e1c39ef004bb4c6042d8404fd672413ef1d5931541f0ed38990d80ae2e40f3",
+    "comparison": "b2a6bdc773f6d13f0fb54d3155a73fd20790d00a5a3de2618d7f318e7e203ec2",
+    "selection": "b2ced5d886e6a9ad34e51702347c8a0ccb96e70e23bad4a91406b2a27fc0e341",
+    "parent_receipt": "dbd71bba0ebb77fb51bd10dd33ae654715af7ff17bc2d4ee5ccda4eeb6cd1804",
+    "labels": "cd1c785268790a469b99796383b55b5b04bbfcfb63973ab34fd2bcbd09047200"
+  },
+  "expected_panel": {
+    "models": ["base_tcn", "relative_tcn"],
+    "seeds": [7],
+    "folds": [0, 1, 2, 3, 4],
+    "horizons": [1, 2, 3, 5]
+  },
+  "top_fraction": 0.1,
+  "policies": [
+    {
+      "name": "raw_topk",
+      "incumbent_buffer_fraction": 0.0
+    },
+    {
+      "name": "incumbent_buffer_20pct",
+      "incumbent_buffer_fraction": 0.2
+    }
+  ],
+  "cost_bps": [0.0, 5.0, 10.0, 20.0],
+  "model_gates": {
+    "min_mean_rankic_delta": 0.002,
+    "min_positive_units": 3,
+    "min_mean_top_precision_delta": 0.0,
+    "min_mean_ndcg_delta": 0.0,
+    "min_mean_top_return_delta": -0.0001,
+    "min_rankic_ci_low": -0.002,
+    "min_tcn_speed_retention": 0.9
+  },
+  "strategy_gate": {
+    "one_way_cost_bps": 10.0,
+    "max_mean_one_way_turnover_delta": 0.02,
+    "min_mean_net_return_delta": -0.0001
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "seed": 7,
+  "folds": [0],
+  "max_epochs": 8,
+  "patience": 2,
+  "min_delta": 0.002,
+  "control_trial_id": "control-k3-c8",
+  "apply_scale_gate": false,
+  "trials": [
+    {
+      "trial_id": "control-k3-c8",
+      "channels": 8,
+      "kernel_size": 3,
+      "dilations": [1, 2, 4, 8, 16, 32, 64],
+      "dropout": 0.1,
+      "learning_rate": 0.01,
+      "batch_size": 128
+    },
+    {
+      "trial_id": "k3-c8-lr3e3",
+      "channels": 8,
+      "kernel_size": 3,
+      "dilations": [1, 2, 4, 8, 16, 32, 64],
+      "dropout": 0.1,
+      "learning_rate": 0.003,
+      "batch_size": 128
+    },
+    {
+      "trial_id": "k3-c16-lr3e3",
+      "channels": 16,
+      "kernel_size": 3,
+      "dilations": [1, 2, 4, 8, 16, 32, 64],
+      "dropout": 0.1,
+      "learning_rate": 0.003,
+      "batch_size": 128
+    },
+    {
+      "trial_id": "k5-c8-lr3e3",
+      "channels": 8,
+      "kernel_size": 5,
+      "dilations": [1, 2, 4, 8, 16, 32],
+      "dropout": 0.1,
+      "learning_rate": 0.003,
+      "batch_size": 128
+    },
+    {
+      "trial_id": "k5-c16-lr1e3",
+      "channels": 16,
+      "kernel_size": 5,
+      "dilations": [1, 2, 4, 8, 16, 32],
+      "dropout": 0.1,
+      "learning_rate": 0.001,
+      "batch_size": 128
+    },
+    {
+      "trial_id": "k5-c8-lr1e3-d0",
+      "channels": 8,
+      "kernel_size": 5,
+      "dilations": [1, 2, 4, 8, 16, 32],
+      "dropout": 0.0,
+      "learning_rate": 0.001,
+      "batch_size": 128
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "pandadata-five-year-top20-preprocess",
+  "seed": 7,
+  "horizons": [1, 2, 3, 5],
+  "lookback_days": 10,
+  "universe": {
+    "allowed_exchanges": ["XSHG", "XSHE"],
+    "security_type": "A_SHARE",
+    "min_listing_days": 0
+  }
+}

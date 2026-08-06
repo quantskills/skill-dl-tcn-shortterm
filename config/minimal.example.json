@@ -1,0 +1,5 @@
+{
+  "run_name": "tcn-shortterm-smoke",
+  "seed": 7,
+  "horizons": [1, 2, 3, 5]
+}

@@ -1,0 +1,37 @@
+{
+  "protocol_version": "v33",
+  "run_id": "pandadata-tcn-task-aligned-evaluation-v33",
+  "parent_artifact": "artifacts/tcn-date-horizon-equal-smooth-l1-v32",
+  "parent_receipt_id": "3a2d7866b116eb4a6265dc4f447faa83db1c1fd8b35cb4bd6f6ec4bbb831456d",
+  "tcn_trial_id": "dynamic-horizon-skip-c16-chomp-smooth-h4-s1-frozen-parent-shape-r025-grouped-label-mean",
+  "seeds": [7, 17, 27],
+  "folds": [0, 1, 2, 3, 4],
+  "torch_threads": 8,
+  "num_workers": 0,
+  "precision": "float32",
+  "top_fraction": 0.1,
+  "bootstrap_seed": 33,
+  "bootstrap_draws": 2000,
+  "lstm_replay_tolerance": 1e-12,
+  "source_sha256": {
+    "features": "6a494fe56cd4594bfd24f1c3a053d93bf704af5acfb97089a095d69c4bb2983e",
+    "window_index": "977033bd1115a2d649600905ee9f3c115ceed6fa0ceacff24587ee5da4966db1",
+    "labels": "4a64e2d3e6ff9285df5e229661b50f66535c0dfeed22779def541a848f378594",
+    "split_manifest": "7de75cf192d807b03ef777f496caca5a1ee774f083bd23afc04239f006a9a672",
+    "universe": "fcf2e52245f47e2c98b4f39a055cf5e4f02e80a3805538282877828a057bcd7c",
+    "input_manifest": "f7907b1972a73f34f31a0577da6f3f9ba0c49ae519c46beeed2f54d64878d3e5"
+  },
+  "contracts": {
+    "prediction_contract_id": "cross-sectional-score-v1",
+    "target_contract_id": "next-open-rank-v2",
+    "evaluation_contract_id": "ordinary-validation-multimetric-v33",
+    "tcn_training_contract_id": "frozen-parent-shape-residual-continuation-v32",
+    "lstm_training_contract_id": "from-scratch-masked-smooth-l1-8epoch-v32"
+  },
+  "lstm": {
+    "hidden_size": 34,
+    "learning_rate": 0.003,
+    "batch_size": 128,
+    "epochs": 8
+  }
+}

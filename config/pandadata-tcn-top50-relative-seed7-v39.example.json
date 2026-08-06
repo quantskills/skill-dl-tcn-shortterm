@@ -1,0 +1,61 @@
+{
+  "protocol_version": "v39-phase-a",
+  "run_id": "pandadata-tcn-top50-relative-sequence-seed7-v39",
+  "source_sha256": {
+    "base_features": "50cfa0653e90f617925596f6bea9af35114f56ee1e4e067e15ad8eadf8a054de",
+    "base_window_index": "2d2e7f05ced0972a21511692bf23531945560e3f4797aec99c0bbbcd1bb06f72",
+    "candidate_features": "b1eb4869c6dbf580a43692de7c073908f2b75548789f1b7167ba5e815c5c9cf4",
+    "candidate_window_index": "6cbf0e3e0da920e90a329b0a2c27d34f933bde4a78824f0bdefb0899b55207ac",
+    "candidate_manifest": "c378c04bdcb19ef28196a55d3d0b7484d08af8ca7596e007378abb69264bb003",
+    "candidate_receipt": "8d3f3e01d8666da4a8d676488886aa34effa75c310bbee00b4773454421e87f3",
+    "labels": "cd1c785268790a469b99796383b55b5b04bbfcfb63973ab34fd2bcbd09047200",
+    "split_manifest": "e46cc03a07c07cd20c53130288af89c22c9c83a5f95970bc3637ae5779ff25f6"
+  },
+  "seeds": [7],
+  "folds": [0, 1, 2, 3, 4],
+  "torch_threads": 8,
+  "num_workers": 0,
+  "precision": "float32",
+  "max_epochs": 8,
+  "patience": 2,
+  "min_delta": 0.0005,
+  "checkpoint_min_delta": 0.0,
+  "top_fraction": 0.1,
+  "min_top_count": 4,
+  "bootstrap_seed": 39,
+  "bootstrap_draws": 2000,
+  "contracts": {
+    "prediction_contract_id": "cross-sectional-score-v1",
+    "target_contract_id": "next-open-rank-v2",
+    "evaluation_contract_id": "ordinary-validation-top50-relative-v39",
+    "tcn_training_contract_id": "top50-base8-relative2-dynamic-horizon-skip-v39",
+    "lstm_training_contract_id": "not-executed-in-phase-a"
+  },
+  "gates": {
+    "min_mean_rankic_delta": 0.002,
+    "min_positive_units": 3,
+    "min_mean_top_precision_delta": 0.0,
+    "min_mean_ndcg_delta": 0.0,
+    "min_mean_top_return_delta": -0.0001,
+    "max_mean_turnover_delta": 0.02,
+    "min_rankic_ci_low": -0.002,
+    "min_tcn_speed_retention": 0.9
+  },
+  "trials": [
+    {
+      "trial_id": "top50-dynamic-horizon-skip-c16-chomp-smooth-relative-v39",
+      "model_kind": "dynamic_horizon_skip",
+      "channels": 16,
+      "kernel_size": 3,
+      "dilations": [1, 2, 4, 8, 16, 32, 64, 128],
+      "dropout": 0.0,
+      "learning_rate": 0.003,
+      "batch_size": 128,
+      "strategy": "smooth_l1",
+      "padding_mode": "chomp",
+      "dynamic_skip_hidden": 4,
+      "dynamic_skip_scale": 1.0,
+      "date_batch_order": "fixed_once"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TCN 短线预测研究"
+  short_description: "用因果 TCN 对 A 股分钟线做 1–5 日横截面收益排序与可审计验证"
+  default_prompt: "使用 $skill-dl-tcn-shortterm 审计并运行我的 TCN 分钟线预测研究，用同协议 LSTM 基准报告预测效果、速度和证据边界。"
