@@ -401,6 +401,8 @@ V47 已把同一个可移植优化模型接入公开 CLI。2021–2025 Top50 原
 ```text
 skill-dl-tcn-shortterm/
 ├── SKILL.md
+├── AGENTS.md  # 仅供仓库开发与维护
+├── LICENSE
 ├── agents/openai.yaml
 ├── references/
 ├── src/skill_dl_tcn_shortterm/
@@ -409,7 +411,7 @@ skill-dl-tcn-shortterm/
 └── README.md
 ```
 
-Skill 文档只描述稳定工作流；Python 包是唯一算法实现；`references/` 按需提供模型、数据和证据契约。真实数据、凭据、缓存、运行产物、本机路径和内部会话记录不属于发布内容。
+Skill 文档只描述稳定工作流；Python 包是唯一算法实现；`references/` 按需提供模型、数据和证据契约。根目录 `AGENTS.md` 仅供开发者维护仓库时使用，不是下游 Agent 的运行说明；使用本 Skill 时应从 `SKILL.md` 开始。真实数据、凭据、缓存、运行产物、本机路径和内部会话记录不属于发布内容。
 
 ## 本地验证
 
@@ -424,3 +426,7 @@ tcn-shortterm-skill demo
 ```
 
 所有通过状态都只说明当前代码和接口满足已声明契约，不自动产生 Alpha、部署或交易授权。
+
+## License
+
+本项目采用 [GNU General Public License v3.0](LICENSE)。
