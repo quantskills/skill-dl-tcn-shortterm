@@ -1,5 +1,7 @@
 # Agent contract
 
+> Development-only: this root `AGENTS.md` is for contributors who maintain this repository. It is not runtime guidance for agents consuming the Skill; the published Skill entrypoint is `SKILL.md`.
+
 This file is the canonical onboarding and safety contract.
 
 ## Canonical onboarding

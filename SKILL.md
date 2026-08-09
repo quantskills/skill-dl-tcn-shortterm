@@ -5,6 +5,17 @@ description: 使用因果扩张 Temporal Convolutional Network 对沪深 A 股�
 
 # TCN 短线时序卷积研究
 
+## 什么情况下应该使用这个 Skill
+
+在用户需要用沪深 A 股分钟线或预计算的 `[样本, 特征, 时间]` tensor 研究未来 `1 / 2 / 3 / 5` 个交易日的横截面收益排序时使用本 Skill。它适合以下任务：
+
+- 训练、重放或诊断严格因果的 TCN 短线预测模型；
+- 在相同数据、切分、训练预算和硬件口径下，以 LSTM 做预测效果与速度基准；
+- 审计 causal padding、扩张卷积感受野、WeightNorm、PIT 标的池、walk-forward、purge/embargo 和未来泄漏；
+- 生成 RankIC、Top 区域指标、吞吐、稳定性及冻结候选所需的可审计证据。
+
+不要在组合构建、换手率调优、仓位分配、交易执行、券商连接或实盘部署任务中使用本 Skill；这些属于下游策略层。若目标不是 TCN 分钟线横截面预测，或用户要求收益承诺，也不应触发本 Skill。
+
 始终调用已安装的 `skill_dl_tcn_shortterm` 实现。不得在本 Skill、提示词或 Agent adapter 中复制 TCN、数据切分、评估或证据算法，也不得要求调用方理解仓库内部的 `tasks/`、版本实验脚本或本机目录结构。
 
 ## 快速确认
