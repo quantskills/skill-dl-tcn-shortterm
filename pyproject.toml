@@ -35,7 +35,7 @@ dev = [
     "ruff>=0.11",
     "twine>=6,<7",
 ]
-pandadata = ["panda_data==0.0.12"]
+pandadata = ["panda_data==1.0.6"]
 
 [tool.setuptools.package-data]
 skill_dl_tcn_shortterm = ["resources/agent_skill/*.json"]
