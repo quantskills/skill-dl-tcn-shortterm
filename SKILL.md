@@ -82,3 +82,7 @@ signal_date, instrument_id, horizon, score
 ## 禁止事项
 
 不得索取或提交数据供应商凭据，不得连接券商、发送订单、写外部数据库、触碰未授权 sealed 数据、重复消费已封存窗口、用 test 反向调参、把组合换手问题伪装成模型损失问题，或把单次 RankIC、速度比、回测收益描述成普遍优越性或实盘能力。
+
+## Pandadata compatibility
+
+[Pandadata 1.0.6 compatibility](references/pandadata-compatibility.md) — exact SDK baseline, validation scope, and shared guidance for all supported agent runtimes.

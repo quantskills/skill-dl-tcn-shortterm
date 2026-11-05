@@ -430,3 +430,6 @@ tcn-shortterm-skill demo
 ## License
 
 本项目采用 [GNU General Public License v3.0](LICENSE)。
+
+
+Pandadata 兼容维护：[abgyjaguo](https://github.com/abgyjaguo)，保留原项目作者署名。
